@@ -1,0 +1,142 @@
+\documentclass{article}
+
+
+% PACKAGES 
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage[svgnames]{xcolor} % To change the font color
+
+% Page size and margins
+\usepackage[
+    paperwidth=42in,
+    paperheight=38in,
+    margin = 1in
+]{geometry}
+
+\usepackage{anyfontsize} % To use arbitrary font sizes
+\usepackage{tikz} % Necessary for figures
+\usepackage{pgfplots} % Often loaded with TikZ environments
+\pgfplotsset{compat=1.18} % Set compatibility level
+\usepackage{capt-of} % For captions outside of floats
+\usepackage{multicol} % For multiple columns
+\usepackage{blindtext} % For placeholder text
+
+% Set column parameters
+\columnsep=50pt % Set the space between columns
+\columnseprule= 2pt % Set the thickness of the line between columns (optional)
+
+% Redefine \section command
+\renewcommand{\section}[1]{
+    \begin{center}
+    \begin{tikzpicture}
+        \draw node[fill=red!10,
+        text width = 0.9\linewidth,
+        text centered,
+        inner sep = 30pt,
+        rounded corners = 5pt,
+        draw = red!80]{\textbf{#1}};
+    \end{tikzpicture}
+    \end{center}
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% START OF DOCUMENT
+
+%\fontsize{24}{28}\selectfont % 24pt font size with 28pt line spacing
+\begin{document}
+
+
+%%%%%%%%%%%
+%
+%%%%%%%%%%%
+
+% Title Section
+\begin{center}
+    \fontsize{55}{65}\selectfont
+
+    \begin{tikzpicture}
+        \draw node[
+            fill=red!10,
+            text width=0.95\linewidth,
+            text centered,
+            inner sep=30pt,
+            rounded corners=5pt,
+            draw=red!80
+        ]{
+            \makebox[\textwidth]{
+                \begin{minipage}{0.80\textwidth}
+                    \centering
+                    \textbf{Audio Spectrum Analysis of Natural Harmonics on a Vibrating Guitar String}
+                    \\[1cm]
+                    \fontsize{50}{60}\selectfont
+                    Madeline Jennings, Isaac Khan, Phawat Leechesan
+                    \\[0.5cm]
+                    Cornell University
+                \end{minipage}
+                \hfill
+                \begin{minipage}{0.2\textwidth}
+                    \centering
+                    \includegraphics[scale=0.30]{cornell.png}
+                \end{minipage}
+            }
+        };
+    \end{tikzpicture}
+\end{center}
+
+\vspace{2cm} % Vertical space between title section and poster content
+
+
+%%%%%%%%%%%
+%
+%%%%%%%%%%%
+
+% Poster Content
+
+\begin{multicols*}{3} % Start of 3-column layout
+    \fontsize{40}{50}\selectfont % 40pt font size with 50pt line spacing
+
+    \section{Abstract}
+    Our aim is to characterize natural harmonics on a guitar string and determine under which conditions they occur (ex. fret location, string properties).
+    We will use a fast Fourier transform (FFT) to analyze the sound produced from this mechanism on each fret of each string. 
+    From this, we found that the places where the harmonics can occur are the same for each string (for example, there is a harmonic on the 7th fret of each string) as the length of the vibrating open string is the same for each.
+    The character of each harmonic varies. Furthermore, some are much more prominent than others and they vary in frequency. 
+    Some lack harmonics altogether.
+
+    \section{Introduction}
+    Musicians have observed that plucking a guitar string while lightly pressing the string above a fret wire causes unexpected changes in the resultant sound.
+    In some cases, the fingering deadens the string, muting it almost entirely and in other cases it has a very different effect.
+    At these frets, a \textit{natural harmonic} emerges. When these harmonics occur, the fundamental frequency and overall timbre of the sound changes. 
+    It is, however, not so intuitive to predict where on a string we can fret in order to produce a natural harmonic or what the resultant sound may be.
+    Some may produce a sound, say, an octave higher than the expected sound fretting ordinarily, whereas another may produce a sound that differs by another interval, whereas another may produce a sound that differs
+    The pertinent question is then \textit{where} on a guitar string can natural harmonics occur, and how do both the properties of the string and the fret targeted impact the qualities of the resultant sound, such as frequency, volume and timbre?
+
+    
+
+    \section{Experiment}
+    For each fret on each string of the guitar, we attempted the mechanism that produces the natural harmonic, and the resultant sound was recorded into Audacity and stored in .flac format using a Shure SM57 microphone. 
+    The area surrounding the microphone was soundproofed to minimize the impact of background noise.
+    After reviewing the audio clips and flagging the recordings with harmonics, a FFT was performed on each of these recordings to determine its constituent frequencies and their respective amplitudes.
+
+    
+
+    \section{Results}
+    \blindtext
+
+    \section{Discussion}
+    \blindtext
+
+    \section{Conclusion}
+    \blindtext[2]
+\end{multicols*}
+
+
+\end{document}
